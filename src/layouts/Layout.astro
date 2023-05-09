@@ -1,0 +1,62 @@
+---
+import "@fontsource/public-sans";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="I'm a web developer with 8 years experience and I love working with React, TypeScript and NodeJS."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style lang="scss" is:global>
+  * {
+    box-sizing: border-box;
+  }
+  :root {
+    --primary: #c2f0ff;
+    --secondary: #0081ad;
+    --black: #003546;
+    --white: #fdfdfd;
+
+    @media (prefers-color-scheme: dark) {
+      --primary: #0093c4;
+      --secondary: #e0f7ff;
+      --black: #003546;
+      --white: #fdfdfd;
+    }
+  }
+  html {
+    font-family: "Public Sans", sans-serif;
+    font-size: calc(15px + 0.390625vw);
+  }
+  body {
+    background: var(--primary);
+    margin-block: 0;
+    overflow: hidden;
+    max-width: 1728px;
+    margin-inline: auto;
+    max-height: 100vh;
+  }
+  path {
+    @media (prefers-color-scheme: dark) {
+      fill: #c2f0ff;
+    }
+  }
+</style>

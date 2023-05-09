@@ -1,0 +1,147 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.svelte";
+import Sidepanel from "../components/Sidepanel.astro";
+---
+
+<Layout title="Saldes">
+  <div id="layout">
+    <Header />
+    <Sidebar />
+    <main id="content">
+      <section aria-labelledby="work-title">
+        <h2>Hi, I'm Johan and I do...</h2>
+        <h1 id="work-title">Web development</h1>
+      </section>
+      <Navigation />
+      <Sidepanel />
+    </main>
+  </div>
+</Layout>
+
+<script>
+  // Grab relevant elements that should be effected by
+  // the boolean state of the side menu i.e. open or closed.
+  const btn = document.getElementById("menu");
+  const layout = document.getElementById("layout");
+  const content = document.getElementById("content");
+  const sidemenu = document.getElementById("sidemenu");
+
+  const all = [btn, layout, content, sidemenu];
+
+  btn.addEventListener("click", () => {
+    if (layout.classList.contains("open")) {
+      all.forEach((el) => el.classList.remove("open"));
+    } else {
+      all.forEach((el) => el.classList.add("open"));
+    }
+  });
+</script>
+
+<style lang="scss">
+  @import "../styles/_variables.scss";
+  div {
+    display: grid;
+    grid-template-rows: 64px 1fr;
+    grid-template-columns: 64px 1fr;
+    height: 100vh;
+
+    transition: all 0.4s linear;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      grid-template-rows: 4rem 4rem 1fr;
+      grid-template-columns: 100%;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    &.open {
+      grid-template-columns: 256px 1fr;
+    }
+  }
+  main {
+    grid-row: 2 / span 2;
+    grid-column: 2 / span 2;
+
+    background: var(--primary);
+
+    display: grid;
+    grid-template-rows: 1fr minmax(100px, auto);
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100%;
+    transition: width 0.4s linear;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      grid-row: 3 / span 3;
+      grid-column: 1;
+
+      grid-template-rows: 1fr minmax(100px, auto);
+      grid-template-columns: 100%;
+    }
+
+    &.open {
+      width: calc(100% + 192px);
+    }
+
+    section {
+      container: hello / inline-size;
+
+      grid-row: 1;
+      grid-column: 1 / span 2;
+
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      border-right: 1px solid var(--secondary);
+
+      padding: 4rem;
+
+      color: var(--secondary);
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        grid-row: 1;
+        grid-column: 1;
+
+        padding: 3rem;
+      }
+
+      h1 {
+        font-size: 5rem;
+        margin: 0;
+
+        @media screen and (max-width: $mobile-breakpoint) {
+          font-size: 5rem;
+        }
+
+        @container hello (max-width: 700px) {
+          font-size: 3rem;
+        }
+      }
+      h2 {
+        font-size: 1.5em;
+        transform: rotate(-5deg);
+        margin-left: -1em;
+        margin: 0;
+
+        @container hello (max-width: 700px) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+</style>
