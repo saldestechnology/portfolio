@@ -1,15 +1,14 @@
-<script lang="ts">
-  import {  } from "svelte"
-  console.log("From Navigation");
-  const myVar: String = "From Navigation";
-  console.log({ myVar });
-</script>
-
 <nav>
   <ul>
-    <li><button tabindex="0">CV</button></li>
-    <li><button tabindex="0">Blog</button></li>
-    <li><button tabindex="0">About me</button></li>
+    <li><button id="cv" aria-label="See my CV" tabindex="0">CV</button></li>
+    <li>
+      <button id="blog" aria-label="Read my blog" tabindex="0">Blog</button>
+    </li>
+    <li>
+      <button id="about" aria-label="Read about me" tabindex="0"
+        >About me</button
+      >
+    </li>
   </ul>
 </nav>
 
