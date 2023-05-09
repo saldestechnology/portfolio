@@ -5,29 +5,30 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
 
 <aside id="sidemenu">
   <div class="menu">
-    <button id="menu" tabindex="0">
+    <button id="menU" aria-label="Toggle menu" id="menu" tabindex="0">
       <RxHamburgerMenu color="#008AB8" size="2em" />
     </button>
   </div>
   <nav>
     <ul>
+      <li><button id="cv" aria-label="See my CV" tabindex="0">CV</button></li>
       <li>
-        <button>Portfolio</button>
+        <button id="blog" aria-label="Read my blog" tabindex="0">Blog</button>
       </li>
       <li>
-        <button>CV</button>
-      </li>
-      <li>
-        <button>Blog</button>
-      </li>
-      <li>
-        <button>About me</button>
+        <button id="about" aria-label="Read about me" tabindex="0"
+          >About me</button
+        >
       </li>
     </ul>
   </nav>
   <div class="socials">
-    <button><SiLinkedin color="#008AB8" size="1.5rem" /></button>
-    <button><SiGithub color="#008AB8" size="1.5rem" /></button>
+    <button id="linkedin" aria-label="See my LinkedIn"
+      ><SiLinkedin color="#008AB8" size="1.5rem" /></button
+    >
+    <button id="Github" aria-label="See my Github"
+      ><SiGithub color="#008AB8" size="1.5rem" /></button
+    >
   </div>
 </aside>
 
