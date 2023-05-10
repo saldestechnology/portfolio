@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Navigation from "../components/Navigation.astro";
 import Sidepanel from "../components/Sidepanel.astro";
 import Popup from "../components/Popup.astro";
+import Heading from "../components/Heading.astro";
 ---
 
 <>
@@ -16,7 +17,7 @@ import Popup from "../components/Popup.astro";
       <main id="content">
         <section aria-labelledby="work-title">
           <h2>Hi, I'm Johan and I do...</h2>
-          <h1 id="work-title">Web development</h1>
+          <Heading id="work-title">Web development</Heading>
         </section>
         <Navigation />
         <Sidepanel />
@@ -121,6 +122,9 @@ import Popup from "../components/Popup.astro";
         grid-row: 1;
         grid-column: 1;
 
+        align-items: center;
+        justify-content: center;
+
         padding: 3rem;
       }
 
@@ -141,6 +145,10 @@ import Popup from "../components/Popup.astro";
         transform: rotate(-5deg);
         margin-left: -1em;
         margin: 0;
+
+        @media screen and (max-width: $mobile-breakpoint) {
+          margin-left: -2rem;
+        }
 
         @container hello (max-width: 700px) {
           margin-bottom: 1rem;
