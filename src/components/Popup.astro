@@ -7,8 +7,11 @@ import Button from "./Button.astro";
   <h1>Welcome</h1>
   <p>
     This website is still under construction but you can still check it out. In
-    the meanwhile check out my github to follow the development of this website
-    in realtime and linkedin for a comprehensive overview of my CV.
+    the meanwhile check out <a href="https://github.com/saldestechnology"
+      >my github</a
+    > to follow the development of this website in realtime and <a
+      href="https://www.linkedin.com/in/johan-saldes-codehead/">LinkedIn</a
+    > for a comprehensive overview of my CV.
   </p>
   <button>Close</button>
 </div>
@@ -25,6 +28,7 @@ import Button from "./Button.astro";
 </script>
 
 <style lang="scss">
+  @import "../styles/_variables.scss";
   .background {
     position: fixed;
     top: 0;
@@ -42,13 +46,22 @@ import Button from "./Button.astro";
     position: fixed;
     top: 1rem;
     left: 1rem;
-    width: calc(100vw - 2rem);
-    height: calc(100vh - 2rem);
+    right: 1rem;
     background: var(--primary);
     z-index: 9999;
     border-radius: 2px;
     box-shadow: 0 0 2rem 2px var(--black);
     padding: 1rem;
     color: var(--white);
+    @media screen and (max-width: $mobile-breakpoint) {
+      top: 1rem;
+      left: 1rem;
+      width: calc(100vw - 2rem);
+      height: calc(100vh - 2rem);
+    }
+
+    a {
+      color: var(--black);
+    }
   }
 </style>
