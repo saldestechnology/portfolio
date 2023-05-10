@@ -1,0 +1,54 @@
+---
+import Button from "./Button.astro";
+---
+
+<div class="background"></div>
+<div class="popup">
+  <h1>Welcome</h1>
+  <p>
+    This website is still under construction but you can still check it out. In
+    the meanwhile check out my github to follow the development of this website
+    in realtime and linkedin for a comprehensive overview of my CV.
+  </p>
+  <button>Close</button>
+</div>
+
+<script>
+  const button = document.querySelector("button");
+  const background = document.querySelector(".background");
+  const popup = document.querySelector(".popup");
+
+  button.addEventListener("click", () => {
+    background.style.display = "none";
+    popup.style.display = "none";
+  });
+</script>
+
+<style lang="scss">
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--black);
+    opacity: 0.8;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+    background: var(--primary);
+    z-index: 9999;
+    border-radius: 2px;
+    box-shadow: 0 0 2rem 2px var(--black);
+    padding: 1rem;
+    color: var(--white);
+  }
+</style>

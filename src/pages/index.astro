@@ -4,22 +4,26 @@ import Sidebar from "../components/Sidebar.astro";
 import Header from "../components/Header.astro";
 import Navigation from "../components/Navigation.astro";
 import Sidepanel from "../components/Sidepanel.astro";
+import Popup from "../components/Popup.astro";
 ---
 
-<Layout title="Saldes">
-  <div id="layout">
-    <Header />
-    <Sidebar />
-    <main id="content">
-      <section aria-labelledby="work-title">
-        <h2>Hi, I'm Johan and I do...</h2>
-        <h1 id="work-title">Web development</h1>
-      </section>
-      <Navigation />
-      <Sidepanel />
-    </main>
-  </div>
-</Layout>
+<>
+  <Layout title="Saldes">
+    <Popup />
+    <div id="layout">
+      <Header />
+      <Sidebar />
+      <main id="content">
+        <section aria-labelledby="work-title">
+          <h2>Hi, I'm Johan and I do...</h2>
+          <h1 id="work-title">Web development</h1>
+        </section>
+        <Navigation />
+        <Sidepanel />
+      </main>
+    </div>
+  </Layout>
+</>
 
 <script>
   // Grab relevant elements that should be effected by
