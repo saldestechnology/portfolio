@@ -1,8 +1,8 @@
-<header>
-  <button id="contact" aria-label="Open contact form" tabindex="0"
-    >Contact me</button
-  >
-</header>
+---
+import Button from "./Button.astro";
+---
+
+<header><Button>Contact me</Button></header>
 
 <style lang="scss">
   header {
@@ -12,15 +12,5 @@
     grid-column: 1 / span 2;
     background-color: var(--primary);
     border-bottom: 1px solid var(--secondary);
-
-    button {
-      border: none;
-      padding: 0 3rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      background: var(--secondary);
-      color: var(--primary);
-      cursor: pointer;
-    }
   }
 </style>
